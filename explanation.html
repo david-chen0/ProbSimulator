@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Simulating probability with a fair coin" />
+        <meta name="author" content="Dav" />
+        <title>Probability Using Fair Coin</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Probability Using Fair Coin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Main</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="explanation.html">How it Works</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-start mt-5">
+                <center>
+                    <h1>Explanation</h1>
+                    <img src="assets/coinflip.jpg" alt="Flipping a coin" style="width: 60%;height: auto;">
+                </center>
+                <p><big>Let the probability you pick be denoted as \(p\). For a fair coin, this probability in decimal form would be \(p = 0.5\). We can convert this decimal into binary form such that the \(i^{th}\) binary digit is given by \(b_i\). More formally,</big></p>
+                <h3>$$ {\exists (b_1, b_2,..., b_n) \mid (\forall i \in \text{{1, n} } b_i \in \text{{0, 1}}) \land (p = 0.b_1b_2b_3...b_n)}. $$</h4>
+                <p><big>From here, the procedure is simple:</big></p>
+                <p><big>First, designate a side you plan to stop on. For our purposes, this side is designated to be heads.</big></p>
+                <p><big>Then, continue flipping a fair coin until you land on heads.</big></p>
+                <p><big>Suppose you land on heads on the kth flip. If \(b_k = 1\), then return a successful flip. Otherwise, return that the flip was unsuccessful.</big></p><br><p></p><br>
+                <p><big>To see that this emulates any probability, note the probability of a successful flip is given by</big></p>
+                <h3>$$ {P\text{[Successful Flip]} = P\text{[Flip 1 is first heads]}P[b_1 = 1] + ... + P\text{[Flip n is first heads]}P[b_n = 1]}. $$</h3>
+                <p><big>Note that the probability of flip \(k\) being the first heads is \(\frac{1}{2^k}\) and the probability that \(b_k = 1\) is simply given by \(b_k\)(either 0 or 1). Therefore, the probability of a successful flip can be expressed as</big></p>
+                <h3>$$ {P\text{[Successful Flip]} = \frac{b_1}{2} + ... + \frac{b_n}{2^n},} $$</h3>
+                <p><big>which is the binary expansion of \(p\). Therefore, the probability of our simulation to return a successful flip is given by \(p\).</big></p><br>
+                <p align="center">Note that this simulator uses a pseudorandom number generator, which may occasionally return skewed results.</p>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+    </body>
+
+    <div class="footer">
+        <p>Built by David Chen</p>
+    </div>
+</html>
